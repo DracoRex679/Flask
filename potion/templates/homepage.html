@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Potion: DataStream</title>
+        <style>
+      a:link {
+        color: #3CEE0C;
+      }
+      a:visited {
+        color: #3CEE0C;
+      }
+    </style>
+</head>
+<body style="background-image: url(https://media.giphy.com/media/ytwDCy4skFkEzyw4G4/giphy.gif); background-size:cover">
+<div style ="background-color:black">
+<h1 style="color:#3CEE0C; text-align:center">🐸 Potion: DataStream 🐸</h1>
+<h2 style="text-align:center; color:#3CEE0C;">Welcome to Potion. Your home for all things regarding your data.</h2>
+    <br>
+    <nav style="text-align:center; color:#3CEE0C; font-size:24px;">
+        <a href="Your-server/">Home</a> |
+        <a href="Your-server/stocks">Stocks </a> |
+        <a href="Your-server/weather">Weather</a> |
+        <a href="Your-server/twittertrends">Twitter Trends</a>
+    </nav>
+    </div>
+<div style="background-color:black; color:white">
+<audio controls><source src="./static/Logic_Keanu_Reeves.mp3">Keanu Reeves</audio>
+<ol>
+{%for content in contents%}
+    <li>{{content.text}}</li>
+    {% endfor %}
+{%for hour_data in weather_info%}
+    <li>Condition Code: {{hour_data["weather"][0]["id"]}}, Main: {{hour_data["weather"][0]["main"]}},
+        Description: {{hour_data["weather"][0]["description"]}}</li>
+    {% endfor %}
+</ol>
+    {%if show_data == True%}
+    <ul>Stock:{{item}}
+        <li>Open: {{open}}</li>
+        <li>High: {{high}}</li>
+        <li>Low: {{low}}</li>
+        <li>Close: {{close}}</li>
+        <li>Volume: {{volume}}</li>
+    </ul>
+    {% endif %}
+    {%if query == True%}
+    <p>Symbol:
+        <form method="GET">
+        <input label="Symbol:" type="search" name="q">
+        <button type="submit" onclick="window.location.href(Your-server/stocks")>
+        Submit</button>
+    </form>
+
+    </p>
+    {% endif %}
+    </div>
+</body>
+</html>
